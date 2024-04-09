@@ -25,8 +25,9 @@ class AVL:
     return self.__search(self.root, value)
   
   def delete(self, value):
-    return self.__delete_node(self.root, value)
-
+    self.root = self.__delete_node(self.root, value)
+    return self.root
+  
   def __insert(self, node, value):
     if not node:
       return Node(value)
@@ -78,6 +79,9 @@ class AVL:
     return node
 
   def __balance_factor(self, node):
+    # The balance factor is the difference between the height of the left subtree and the right subtree.
+    #   - A negative value means that the right subtree is taller.
+    #   - A positive value means that the left subtree is taller.
     if node is None:
       return 0
 
@@ -117,9 +121,23 @@ class AVL:
       elif node.right is None:
         return node.left
 
+      # Get the inorder successor
       successor = self.__subtree_min_value(node.right)
       node.value = successor.value
       node.right = self.__delete_node(node.right, successor.value)
+
+    bf = self.__balance_factor(node)
+
+    if bf > 1 and self.__balance_factor(node.left) >= 0:
+      return self.__right_rotate(node)
+    elif bf < -1 and self.__balance_factor(node.right) <= 0:
+      return self.__left_rotate(node)
+    elif bf > 1 and self.__balance_factor(node.left) < 0:
+      node.left = self.__left_rotate(node.left)
+      return self.__right_rotate(node)
+    elif bf < -1 and self.__balance_factor(node.right) > 0:
+      node.right = self.__right_rotate(node.right)
+      return self.__left_rotate(node)
 
     return node
   
@@ -183,6 +201,9 @@ tree.insert(65)
 tree.insert(75)
 tree.insert(95)
 tree.insert(99)
+tree.inorder()
+tree.delete(30)
+tree.delete(35)
 tree.inorder()
 print(tree.search(31))
 
