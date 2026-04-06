@@ -1,0 +1,17 @@
+# IDEs
+.idea/
+.vscode/
+
+# OS Files
+.DS_Store
+**/.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+
+# RAG Database
+src/rag/chroma_db/
