@@ -18,6 +18,17 @@ Este repositorio sirve como base de conocimientos centralizada para temas de ing
   - Crear "Cheat Sheets" o guías rápidas basadas en la bibliografía.
   - Identificar conexiones entre diferentes autores y conceptos.
 
+## Configuración RAG
+
+Parámetros para usar el skill `/rag` en este proyecto:
+
+| Parámetro | Valor |
+|-----------|-------|
+| `--db-path` | `/home/sebastian/Documentos/rag/chroma_db` |
+| `--collection-name` | `software_engineering_books` |
+| `--source-dir` | `/home/sebastian/Documentos/CSStudies/software-engineering/fuentes` |
+| `--n-results` | `5` |
+
 ## Flujo de Trabajo Inicial
 
 1. **Recopilación**: Añadir archivos (PDFs, Markdown, Enlaces) a la carpeta `fuentes/`.
