@@ -13,5 +13,10 @@ __pycache__/
 venv/
 .venv/
 
+# Node
+node_modules/
+dist/
+coverage/
+
 # RAG Database
 src/rag/chroma_db/

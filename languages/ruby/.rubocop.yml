@@ -1,0 +1,7 @@
+AllCops:
+  NewCops: enable
+  SuggestExtensions: false
+  TargetRubyVersion: 4.0
+
+Style/Documentation:
+  Enabled: false

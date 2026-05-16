@@ -1,0 +1,38 @@
+# Checklist
+
+## Setup
+
+- [x] Completar `00-setup`.
+- [x] Ruby instalado.
+- [x] Bundler funcionando.
+- [x] RuboCop funcionando.
+- [x] SQLite disponible.
+- [x] PostgreSQL disponible si se usara para Rails.
+
+## Ruby
+
+- [x] Completar `01-ruby-foundations`.
+- [ ] Completar `02-ruby-oop`.
+- [ ] Completar `03-ruby-stdlib-testing`.
+- [ ] Terminar `projects/cli-todo`.
+
+## Rack
+
+- [ ] Completar `04-http-and-rack`.
+- [ ] Completar `05-rack-middlewares`.
+- [ ] Terminar `projects/rack-api`.
+
+## Rails
+
+- [ ] Completar `06-rails-foundations`.
+- [ ] Completar `07-active-record`.
+- [ ] Completar `08-hotwire`.
+- [ ] Terminar primera version de `projects/rails-blog`.
+
+## Rails Profesional
+
+- [ ] Completar `09-testing-security`.
+- [ ] Completar `10-devise-auth`.
+- [ ] Completar `11-grape-api`.
+- [ ] Completar `12-background-jobs-deployment`.
+- [ ] Terminar `projects/study-planner-capstone`.

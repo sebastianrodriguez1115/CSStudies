@@ -1,0 +1,12 @@
+# frozen_string_literal: true
+
+task default: :hello
+
+task :hello do
+  ruby 'hello.rb', 'Ruby'
+end
+
+task :check do
+  ruby '-c', 'hello.rb'
+  sh 'rubocop --config ../../.rubocop.yml .'
+end
