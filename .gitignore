@@ -3,3 +3,4 @@
 .DS_Store
 **/.DS_Store
 software-engineering/src/rag/chroma_db/
+languages/ruby/references/*.pdf

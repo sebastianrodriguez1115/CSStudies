@@ -1,11 +1,14 @@
 # frozen_string_literal: true
 
 class Money
-  attr_reader :amount, :currency, :errors
+  class CurrencyMismatchError < StandardError; end
+  class InsufficientFundsError < StandardError; end
+
+  attr_reader :amount, :currency
 
   def initialize(amount, currency)
     @amount = amount
-    @currency = currency
+    @currency = currency&.strip&.upcase
     @errors = []
   end
 
@@ -18,10 +21,27 @@ class Money
     @errors.empty?
   end
 
+  def errors
+    @errors.dup.freeze
+  end
+
   def ==(other)
     other.is_a?(Money) &&
       amount == other.amount &&
       currency == other.currency
+  end
+
+  def +(other)
+    validate_operand(other)
+
+    Money.new(amount + other.amount, currency)
+  end
+
+  def -(other)
+    validate_operand(other)
+    raise InsufficientFundsError if amount < other.amount
+
+    Money.new(amount - other.amount, currency)
   end
 
   private
@@ -33,15 +53,21 @@ class Money
   end
 
   def validate_amount
-    return if amount >= 0
+    unless amount.is_a?(Numeric)
+      @errors << 'Amount should be numeric.'
+      return
+    end
 
-    @errors << 'Amount should be non-negative.'
+    @errors << 'Amount should be non-negative.' if amount.negative?
   end
 
   def validate_currency
-    return if currency && !currency.empty?
+    @errors << 'Currency should be provided.' if !currency || currency.empty?
+  end
 
-    @errors << 'Currency should be provided.'
+  def validate_operand(other)
+    raise TypeError unless other.is_a?(Money)
+    raise CurrencyMismatchError unless currency == other.currency
   end
 end
 

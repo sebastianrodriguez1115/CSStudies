@@ -296,6 +296,7 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
+  activesupport (~> 8.1)
   devise (~> 4.9)
   grape (~> 2.4)
   grape-entity (~> 1.0)

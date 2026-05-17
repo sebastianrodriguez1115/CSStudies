@@ -2,27 +2,31 @@
 
 ## Ritmo De Trabajo
 
-- Trabajar paso a paso, no implementar modulos completos de una sola vez.
-- Antes de escribir codigo amplio, proponer el siguiente micro-paso y esperar confirmacion.
-- Priorizar ejercicios pequenos que el usuario pueda repasar, ejecutar y modificar.
-- Explicar brevemente el objetivo del paso antes de mostrar o escribir la solucion.
-- Mantener cambios minimos y verificables.
-- No avanzar al siguiente punto hasta que el usuario indique que esta listo.
-- Si aparece una correccion, resolverla sobre el paso actual antes de abrir otro tema.
+- Trabajar paso a paso; no implementar módulos completos de una sola vez.
+- Antes de escribir cualquier test o código para un ejercicio, proponer el siguiente micro-paso y esperar confirmación.
+- Cada micro-paso debe indicar qué concepto de Ruby se va a repasar, por ejemplo: objetos de valor, encapsulamiento, igualdad, validación o errores.
+- Priorizar ejercicios pequeños que el usuario pueda repasar, ejecutar y modificar.
+- Explicar brevemente el objetivo del paso antes de mostrar o escribir la solución.
+- Mantener cambios mínimos y verificables.
+- No avanzar al siguiente punto hasta que el usuario indique que está listo.
+- Si aparece una corrección, resolverla en el paso actual antes de abrir otro tema.
 
 ## TDD
 
-- Preferir TDD para ejercicios y labs: primero escribir o proponer un test pequeno, luego implementar el minimo codigo para hacerlo pasar.
-- No adelantar toda la solucion: avanzar en ciclos cortos de rojo, verde y refactor.
-- Si el usuario esta aprendiendo un concepto nuevo, explicar el test antes de escribir la implementacion.
-- Ejecutar el test relevante despues de cada cambio de comportamiento.
-- Ejecutar RuboCop despues de cerrar un bloque pequeno de trabajo, no antes de que el comportamiento este claro.
+- Preferir TDD para ejercicios y labs: primero escribir o proponer un test pequeño; luego implementar el mínimo código para hacerlo pasar.
+- No adelantar toda la solución; avanzar en ciclos cortos de rojo, verde y refactor.
+- Si el usuario está aprendiendo un concepto nuevo, explicar el test antes de escribir la implementación.
+- Para ejercicios de repaso, no escribir el test automáticamente; primero mostrar el test propuesto o describirlo y pedir confirmación.
+- Ejecutar el test relevante después de cada cambio de comportamiento.
+- Ejecutar RuboCop después de cerrar un bloque pequeño de trabajo, no antes de que el comportamiento esté claro.
 
-## Flujo De Sesion
+## Flujo De Sesión
 
 - Revisar el punto actual del roadmap o checklist antes de crear archivos nuevos.
-- Crear plantillas pequenas cuando el usuario vaya a implementar la solucion.
-- Revisar el codigo escrito por el usuario antes de proponer el siguiente paso.
-- Senalar bugs conceptuales aunque el codigo corra, por ejemplo mezclar excepciones con `valid?` o usar defaults mutables en hashes.
-- Preferir una correccion minima sobre reescribir el ejercicio completo.
-- Cerrar cada modulo con tests, RuboCop, checklist y retrospectiva breve.
+- Crear plantillas pequeñas cuando el usuario vaya a implementar la solución.
+- Revisar el código escrito por el usuario antes de proponer el siguiente paso.
+- Cuando el objetivo sea repasar Ruby, priorizar preguntas guiadas y explicaciones cortas por encima de implementaciones completas.
+- Si el usuario dice "continuemos" o algo similar, interpretar que quiere seguir el flujo pedagógico, no que quiere que se escriba código sin confirmación.
+- Señalar bugs conceptuales aunque el código corra, por ejemplo: mezclar excepciones con `valid?` o usar defaults mutables en hashes.
+- Preferir una corrección mínima antes que reescribir el ejercicio completo.
+- Cerrar cada módulo con tests, RuboCop, checklist y una retrospectiva breve.

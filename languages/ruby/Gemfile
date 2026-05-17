@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 ruby file: '.ruby-version'
 
 # Core exercises: Ruby, tests, tasks, and linting.
+gem 'activesupport', '~> 8.1'
 gem 'minitest', '~> 5.25'
 gem 'rake', '~> 13.0'
 gem 'rubocop', '~> 1.86', require: false
