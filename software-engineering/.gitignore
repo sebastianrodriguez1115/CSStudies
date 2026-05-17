@@ -20,3 +20,6 @@ coverage/
 
 # RAG Database
 src/rag/chroma_db/
+
+# Local source materials
+fuentes/
