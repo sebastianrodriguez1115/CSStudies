@@ -18,7 +18,7 @@ class InvoiceCreationTest < Minitest::Test
   end
 
   def test_cannot_create_invoice_with_nil_currency
-    assert_raises(ArgumentError) do
+    assert_raises(TypeError) do
       Invoice.new(nil)
     end
   end
@@ -26,6 +26,12 @@ class InvoiceCreationTest < Minitest::Test
   def test_cannot_create_invoice_with_blank_currency
     assert_raises(ArgumentError) do
       Invoice.new('   ')
+    end
+  end
+
+  def test_cannot_create_invoice_with_non_string_currency
+    assert_raises(TypeError) do
+      Invoice.new(123)
     end
   end
 end

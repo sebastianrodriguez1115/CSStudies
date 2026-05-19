@@ -2,9 +2,11 @@
 
 require 'active_support/core_ext/object/blank'
 require_relative '../01_money/money'
+require_relative 'line_item'
 
 class Invoice
   def initialize(currency)
+    raise TypeError unless currency.is_a?(String)
     raise ArgumentError unless currency.present?
 
     @currency = currency.strip.upcase
@@ -12,31 +14,20 @@ class Invoice
   end
 
   def add_item(description:, quantity:, unit_price:)
-    validate_item(description, quantity, unit_price)
-
-    @items << {
+    line_item = LineItem.new(
       description: description,
       quantity: quantity,
       unit_price: unit_price
-    }
+    )
+
+    raise Money::CurrencyMismatchError if @currency != line_item.currency
+
+    @items << line_item
+
+    self
   end
 
   def total
-    amount = @items.sum { |item| item[:quantity] * item[:unit_price].amount }
-    Money.new(amount, @currency)
-  end
-
-  private
-
-  attr_reader :items
-
-  def validate_item(description, quantity, unit_price)
-    raise TypeError unless unit_price.is_a?(Money)
-    raise Money::CurrencyMismatchError if @currency != unit_price.currency
-
-    raise TypeError unless quantity.is_a?(Numeric)
-    raise ArgumentError unless quantity.positive?
-
-    raise ArgumentError unless description.present?
+    @items.reduce(Money.new(0, @currency)) { |sum, item| sum + item.subtotal }
   end
 end
