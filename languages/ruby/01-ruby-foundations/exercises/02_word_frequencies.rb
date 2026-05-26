@@ -6,7 +6,7 @@
 text = 'ruby rails ruby rack rails ruby'
 
 def word_frequencies(text)
-  text.split.each_with_object(Hash.new(0)) { |word, frequencies| frequencies[word] += 1 }
+  text.split.tally
 end
 
 puts word_frequencies(text)

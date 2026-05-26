@@ -14,7 +14,7 @@ class InvoiceItemValidationTest < Minitest::Test
   def test_cannot_add_item_with_blank_description
     invoice = Invoice.new('USD')
 
-    assert_raises(ArgumentError) do
+    assert_raises(LineItem::InvalidDescriptionError) do
       invoice.add_item(description: '   ', quantity: 1, unit_price: Money.new(10, 'USD'))
     end
   end
@@ -24,6 +24,14 @@ class InvoiceItemValidationTest < Minitest::Test
 
     assert_raises(TypeError) do
       invoice.add_item(description: 123, quantity: 1, unit_price: Money.new(10, 'USD'))
+    end
+  end
+
+  def test_cannot_add_item_with_non_positive_quantity
+    invoice = Invoice.new('USD')
+
+    assert_raises(LineItem::InvalidQuantityError) do
+      invoice.add_item(description: 'Book', quantity: 0, unit_price: Money.new(10, 'USD'))
     end
   end
 end

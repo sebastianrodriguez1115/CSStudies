@@ -9,7 +9,7 @@ def double_numbers(numbers)
 end
 
 def even_numbers(numbers)
-  numbers.select { |number| number.even? }
+  numbers.select(&:even?)
 end
 
 def sum_numbers(numbers)

@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class LineItem
+  class InvalidDescriptionError < StandardError; end
+  class InvalidQuantityError < StandardError; end
+
   def initialize(description:, quantity:, unit_price:)
     validate_item(description, quantity, unit_price)
 
@@ -23,9 +26,9 @@ class LineItem
     raise TypeError unless unit_price.is_a?(Money)
 
     raise TypeError unless quantity.is_a?(Numeric)
-    raise ArgumentError unless quantity.positive?
+    raise InvalidQuantityError unless quantity.positive?
 
     raise TypeError unless description.is_a?(String)
-    raise ArgumentError unless description.present?
+    raise InvalidDescriptionError unless description.present?
   end
 end

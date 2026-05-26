@@ -9,7 +9,7 @@ Usar libreria estandar y pruebas para escribir Ruby confiable.
 - `File`, `Pathname`, `JSON`, `CSV`, `Date`, `Time`.
 - `Net::HTTP` y consumo HTTP basico.
 - `ERB` para plantillas.
-- `Minitest` y `RSpec`.
+- `Minitest`.
 - Fixtures simples.
 - RuboCop.
 

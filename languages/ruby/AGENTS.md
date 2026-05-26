@@ -30,3 +30,11 @@
 - Señalar bugs conceptuales aunque el código corra, por ejemplo: mezclar excepciones con `valid?` o usar defaults mutables en hashes.
 - Preferir una corrección mínima antes que reescribir el ejercicio completo.
 - Cerrar cada módulo con tests, RuboCop, checklist y una retrospectiva breve.
+
+## Retrospectivas
+
+- Redactar retrospectivas como síntesis conceptual, no como changelog del código escrito.
+- Priorizar teoría general, principios de diseño y vocabulario profesional por encima de detalles puntuales de archivos, clases o métodos.
+- Conectar lo practicado con ideas de libros, katas o referencias investigadas cuando aplique, por ejemplo objetos de valor, composición, encapsulamiento, refactoring, responsabilidades y errores de dominio.
+- Mencionar ejemplos del código solo cuando ayuden a ilustrar una idea general; evitar enumerar todos los cambios implementados.
+- Incluir aprendizajes transferibles: qué criterio usar, qué tradeoff apareció, qué señal indica que conviene refactorizar y qué riesgo conceptual evitar.

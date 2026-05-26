@@ -12,7 +12,7 @@
 ## Ruby
 
 - [x] Completar `01-ruby-foundations`.
-- [ ] Completar `02-ruby-oop`.
+- [x] Completar `02-ruby-oop`.
 - [ ] Completar `03-ruby-stdlib-testing`.
 - [ ] Terminar `projects/cli-todo`.
 

@@ -28,7 +28,7 @@ class LineItemTest < Minitest::Test
   end
 
   def test_cannot_create_item_with_non_positive_quantity
-    assert_raises(ArgumentError) do
+    assert_raises(LineItem::InvalidQuantityError) do
       LineItem.new(description: 'Book', quantity: 0, unit_price: Money.new(10, 'USD'))
     end
   end
@@ -40,13 +40,13 @@ class LineItemTest < Minitest::Test
   end
 
   def test_cannot_create_item_with_empty_description
-    assert_raises(ArgumentError) do
+    assert_raises(LineItem::InvalidDescriptionError) do
       LineItem.new(description: '', quantity: 2, unit_price: Money.new(10, 'USD'))
     end
   end
 
   def test_cannot_create_item_with_blank_description
-    assert_raises(ArgumentError) do
+    assert_raises(LineItem::InvalidDescriptionError) do
       LineItem.new(description: '      ', quantity: 2, unit_price: Money.new(10, 'USD'))
     end
   end

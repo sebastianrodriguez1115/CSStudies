@@ -15,5 +15,5 @@ def filter_numbers(numbers)
   filtered
 end
 
-puts filter_numbers(numbers) { |number| number.odd? }
+puts filter_numbers(numbers, &:odd?)
 puts filter_numbers(numbers) { |number| number > 3 }

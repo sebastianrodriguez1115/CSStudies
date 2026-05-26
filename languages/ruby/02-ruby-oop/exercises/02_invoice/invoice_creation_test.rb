@@ -24,7 +24,7 @@ class InvoiceCreationTest < Minitest::Test
   end
 
   def test_cannot_create_invoice_with_blank_currency
-    assert_raises(ArgumentError) do
+    assert_raises(Invoice::InvalidCurrencyError) do
       Invoice.new('   ')
     end
   end

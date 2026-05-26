@@ -3,11 +3,16 @@
 require 'active_support/core_ext/object/blank'
 require_relative '../01_money/money'
 require_relative 'line_item'
+require_relative 'payable'
 
 class Invoice
+  include Payable
+
+  class InvalidCurrencyError < StandardError; end
+
   def initialize(currency)
     raise TypeError unless currency.is_a?(String)
-    raise ArgumentError unless currency.present?
+    raise InvalidCurrencyError unless currency.present?
 
     @currency = currency.strip.upcase
     @items = []
@@ -25,6 +30,10 @@ class Invoice
     @items << line_item
 
     self
+  end
+
+  def payable?
+    @items.any?
   end
 
   def total
