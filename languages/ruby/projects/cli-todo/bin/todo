@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require_relative '../lib/todo_cli'
+require_relative '../lib/todo_json_store'
+
+file_path = File.expand_path('../todos.json', __dir__)
+store = TodoJsonStore.new(file_path:)
+
+TodoCLI.new(store:).run(ARGV)
